@@ -13,7 +13,12 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-lcurl" />
 				</Compiler>
+				<Linker>
+					<Add library="/usr/lib/i386-linux-gnu/libcurl.so.4.2.0" />
+					<Add directory="/home/ehua/taa/troovbox/Search_Engine_2014/" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/Search_Engine_2014" prefix_auto="1" extension_auto="1" />
@@ -33,7 +38,12 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="BDD.h" />
+		<Unit filename="Code_Source.cpp" />
+		<Unit filename="Code_source.h" />
+		<Unit filename="Url.cpp" />
+		<Unit filename="Url.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

@@ -1,0 +1,9 @@
+#! /bin/bash
+
+
+echo "Creation  de la liste d'url"
+awk -F'"'  -f awkurl.script $1 > "${1}.liste" 
+echo "Initialisation de la liste de mot clef"
+awk -F'"'  -f awkkeywords.script $1 >> "${1}.liste"
+echo "suppression des url inutile"
+sed -i  '/png$\|jpg$\|js$\|gif$\|aspx$\|css$/d' "${1}.liste"

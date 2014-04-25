@@ -1,0 +1,33 @@
+#! /usr/bin/awk -f
+BEGIN {
+
+	X=1;
+}
+{	
+	while (X < NF)
+	{
+
+	
+		
+		$X ~ /http:\/\// 
+		{
+			if (substr($X,1,4)== "http")
+			print $X;
+	
+		}
+		
+		X = X+1;
+
+	}
+
+	if (X == NF)
+	{
+		X=1;
+	}
+
+
+}
+
+END {
+
+}
