@@ -3,6 +3,7 @@
 
 #include "main.h"
 
+
 class Code_Sources
 {
 
@@ -10,6 +11,10 @@ private:
     char* spathTmp;
     FILE* fpListe;
 
+    typedef std::list<Url> uList;
+    typedef std::list<Url>::iterator uListIterator;
+    uList listUrl;
+    uListIterator itUrl;
 
      // Déclarationde la list url
 

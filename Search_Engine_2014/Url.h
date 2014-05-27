@@ -4,8 +4,12 @@
 
 class Url
 {
-
+    private:
+    int score;
+    char  name[501];
+    public:
     Url();
+    char * getname();
 };
 
 #endif // URL_H_INCLUDED
