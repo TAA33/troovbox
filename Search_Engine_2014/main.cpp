@@ -1,5 +1,6 @@
 #include "main.h"
 
+// Par Kassi Ehua...
 using namespace std;
 
 int main()
@@ -119,6 +120,7 @@ int main()
      //B.1//écupération de la recherche depuis un parametre de la fonction
         //B.1.1// Traitement du parametre
         Recherche * Recherche2 = new Recherche(motclef,itKey,listKey);
+
      //B.2//Pour chaque occurence des mot de la liste
         for (itKey = listKey.begin() ; itKey!=listKey.end();itKey++)
         {
@@ -148,22 +150,30 @@ int main()
                     if ( (query.compare(0,7,http,0,7) == 0 || query.compare(0,3,www) == 0) && b==true)
                     {
                          //std::cout << "Ajout de  :" << (*itUrl).getname() << std::endl;
+
                          listUrl.push_back(Url(query.c_str()));
+
                     }
 
 
 
 
               }
-               std::cout << "La liste suivante vien d'etre créee  :" << std::endl;
-               for (itUrl = listUrl.begin() ; itUrl!=listUrl.end();itUrl++)
-                {
-                    std::cout << "Ajout de  :" << (*itUrl).getname() << " with score " << (*itUrl).getScore()  << std::endl;
-
-                }
+              delete Base;
 
 
 
+
+        }
+         std::cout << "La liste suivante vien d'etre créee  :" << std::endl;
+        FILE *fp = fopen(spathTmp, "w");
+        if (fp != NULL)
+        {
+            for (itUrl = listUrl.begin() ; itUrl!=listUrl.end();itUrl++)
+            {
+                        std::cout << "Ajout de  :" << (*itUrl).getname() << " with score " << (*itUrl).getScore()  << std::endl;
+
+            }
         }
 
 

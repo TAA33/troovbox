@@ -7,7 +7,7 @@ Url::Url()
 }
 Url::Url(const char * nm )
 {
-    score=0;
+    score=1;
     strcpy(name,nm);
 
 }
@@ -34,6 +34,7 @@ void Url::incScore()
 {
     score++;
 }
+
 int Url::getScore()
 {
     return  score;
