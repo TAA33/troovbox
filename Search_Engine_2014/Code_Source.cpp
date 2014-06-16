@@ -1,4 +1,5 @@
 #include "main.h"
+
 //it indéxeur est la taille de la précédente liste
 Code_Sources::Code_Sources(std::string url,std::list<Url> &listUrl,std::list<Url>::iterator &itUrl,unsigned int * itIndexeur)
 {

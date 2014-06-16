@@ -98,3 +98,28 @@ ResultSet * Bdd::SearchBdd(char * keyword)
     }
     return stmt -> getResultSet();
 }
+ResultSet * Bdd::RecupBdd()
+{
+     try {
+
+    stmt= con->prepareStatement("SELECT url FROM Url ");
+    stmt->execute();
+     } catch (SQLException &e) {
+     std::cout <<
+		std::cout << "ERROR: SQLException in " << __FILE__;
+		std::cout << " (" << __func__<< ") on line " << __LINE__ << std::endl;
+		std::cout << "ERROR: " << e.what();
+		std::cout << " (MySQL error code: " << e.getErrorCode();
+		std::cout << ", SQLState: " << e.getSQLState() << ")" << std::endl;
+
+		if (e.getErrorCode() == 1047) {
+			/*
+			Error: 1047 SQLSTATE: 08S01 (ER_UNKNOWN_COM_ERROR)
+			Message: Unknown command
+			*/
+			std::cout << "\nYour server does not seem to support Prepared Statements at all. ";
+			std::cout << "Perhaps MYSQL < 4.1?" << std::endl;
+		}
+    }
+    return stmt -> getResultSet();
+}

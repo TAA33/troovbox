@@ -13,6 +13,7 @@ class Bdd
     Bdd();
     ~Bdd();
     sql::ResultSet * SearchBdd(char * keyword);
+    sql::ResultSet * RecupBdd();
     bool AjoutBdd(std::list<MotClef> &kList,char * u, std::list<MotClef>::iterator &itKey,unsigned int * id);
 
 };

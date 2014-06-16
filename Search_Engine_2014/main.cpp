@@ -2,8 +2,8 @@
 
 // Par Kassi Ehua...
 using namespace std;
-
-int main()
+using namespace sql;
+int main(int argc, char *argv[])
 {
    //1//Initialisation __
         //definition des types de listes
@@ -31,13 +31,13 @@ int main()
 
 
 
-    switch(2)
+    switch((int)argv[1])
     {
 
         case 1:
         {
             //var locale a l'action
-            string url ("www.supinfo.com");
+            string url (argv[0]);
             unsigned int  itIndexeur =  0 ;
 
 
@@ -94,6 +94,7 @@ int main()
             break;
         }
         case 2:
+        {
 //_______________________
 //B// L'utilisateur effectue une recherche
 //_______________________
@@ -116,7 +117,7 @@ int main()
          std::string http("http://");
          std::string www("www");
          bool b;
-        strcpy(motclef,"cours Test looooll informatique");
+        strcpy(motclef,argv[0]);
      //B.1//écupération de la recherche depuis un parametre de la fonction
         //B.1.1// Traitement du parametre
         Recherche * Recherche2 = new Recherche(motclef,itKey,listKey);
@@ -165,16 +166,140 @@ int main()
 
 
         }
-         std::cout << "La liste suivante vien d'etre créee  :" << std::endl;
-        FILE *fp = fopen(spathTmp, "w");
-        if (fp != NULL)
-        {
-            for (itUrl = listUrl.begin() ; itUrl!=listUrl.end();itUrl++)
+         //std::cout << "La liste suivante vien d'etre créee  :" << std::endl;
+           /* std::cout << "Content-type: text/html" << std::endl;
+            std::cout << "<html>" << std::endl;
+            std::cout << "   <body>" << std::endl;
+            std::cout<< "<?php"<< std::endl;
+            std::cout <<"session_start();" << std::endl;
+            std::cout <<"if (!isset($_SESSION['login'])) {" << std::endl;
+            std::cout << "   header ('Location: index.php');" << std::endl;
+            std::cout <<  "  exit();"<< std::endl;
+            std::cout <<"}"<< std::endl;
+            std::cout <<"?>"<< std::endl;
+
+            std::cout <<"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">"<< std::endl;
+            std::cout <<"<html xmlns=\"http://www.w3.org/1999/xhtml\">"<< std::endl;
+            std::cout <<"<head>"<< std::endl;
+            std::cout <<"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />"<< std::endl;
+            std::cout <<"<link rel=\"stylesheet\" href=\"mep.css\">"<< std::endl;
+            std::cout <<"<head>"<< std::endl;
+            std::cout <<"<title>Page de recherche</title>"<< std::endl;
+            std::cout <<"</head>"<< std::endl;
+            std::cout <<"<body>"<< std::endl;
+            std::cout <<"Bienvenue <?php echo htmlentities(trim($_SESSION['login'])); ?> <br />
+            std::cout <<"<div id="deconnexion"><a href="deconnexion.php">Déconnexion</a></div>
+            std::cout <<"<div class="foot">Copyright 2014.<a href="mailto:165052@supinfo.com">Support WEB</a></div>
+            std::cout <<"<div class="logo">
+            std::cout <<" <img src="images/logo.jpg" alt="TROOVBOX"/>
+            std::cout <<" <h3>Résultats de votre recherche.</h3>
+            std::cout <<"</br>Il y a <?php echo $nb_resultats;// on affiche le nombre de résultats
+
+            std::cout <<"if($nb_resultats > 1)
+            std::cout <<"{ echo 'résultats'; } else { echo 'résultat'; } // on vérifie le nombre de résultats pour orthographier correctement.
+            std::cout <<" ?>
+
+
+            std::cout <<" <?php
+            std::cout <<" while($donnees = mysql_fetch_array($query)) // on fait un while pour afficher la liste des fonctions trouvées, ainsi que l'id qui permettra de faire le lien vers la page de la fonction
+            std::cout <<" {
+            std::cout <<"    ?>
+            std::cout <<"     <a href="membre.php?id=<? echo $donnees['id']; ?>"><? echo $donnees['nom_fonction']; ?></a><br/>
+            std::cout <<" <?php
+            std::cout <<"} // fin de la boucle
+            std::cout <<" ?><br/>
+            std::cout <<"<br/>
+            std::cout <<"  <a href="membre.php">Faire une nouvelle recherche</a></p>
+
+
+
+
+
+std::cout <<"</div>
+
+std::cout <<"</body>
+std::cout <<"</html>
+*/          int cpt=0;
+            int taille=(int)argv[2];
+                for (itUrl = listUrl.begin() ; itUrl!=listUrl.end() && cpt<taille;itUrl++)
             {
-                        std::cout << "Ajout de  :" << (*itUrl).getname() << " with score " << (*itUrl).getScore()  << std::endl;
+                   cpt++;
+                    std::cout << "<a href =\""<< (*itUrl).getname()<<"\">"<<(*itUrl).getname()<< "</a>"  << std::endl;
 
             }
+            break;
         }
+        case 3:
+        {
+    //_______________________
+    //C// Le systeme effectue une mise a jour de la base
+    //_______________________
+        // Récupération des Urls depuisla Bdd
+        //Pour chaque Url de la base
+            //On parse l'url
+            //Pour chaque url de la liste
+                //si elles ne sontt pas présente dans la base de donnée
+                //si l'url n'existe pas
+                        //Je crée un nouveau processus fils qui lance la partie A;
+                //sinon on passe a l'url suivante
+            //
+        sql::ResultSet *res;
+        sql::Resultset *res2;
+        Bdd * Base = new Bdd();
+        Bdd * Base2 = new Bdd();
+        int status;
+        unsigned int itIndexeur;
+        bool b;
+        res1 =  Base->RecupBdd();
+        res2 = Base2->RecupBdd();
+        while (res1->next()) {
+                b=true;
+                string query = res->getString(1);
+                Code_Sources *Code1 = new Code_Sources(query,listUrl,itUrl,&itIndexeur);
+                for (itUrl = listUrl.begin() ; itUrl!=listUrl.end();itUrl++)
+                {
+                   while (res2->next())
+                   {
+                     query = res->getString(1);
+                     if (query.compare((*itUrl).getname()) == 0)
+                     {
+                        break;
+                     }
+                     else
+                     {
+                        pid_t pID = fork();
+                        bool b;
+                       if (pID == 0)                // child
+
+                       {
+
+                            char *args[]= {"parsing.sript","PATHTOBIN",(char *) 0};
+                            execv("parsing.script",args);
+                            std::cout << "Child process ended normally" << std::endl;
+                            exit(EXIT_SUCCESS);
+                        }
+                        else if (pID < 0)
+                        {
+                            std::cerr << "failed to fork" << std::endl ;
+                        }
+                        else
+                        {
+                           if ((pID = wait(&status)) == -1)
+                           {
+                                //Wait for child
+                           }
+                        }
+                     }
+                   }
+                }
+                break;
+
+        }
+        }
+        default :
+        std::cout << "Usage ./SearchEngine [1 Url |2 Motclef |3 ]  :" << (*itUrl).getname() << " with score " << (*itUrl).getScore()  << std::endl;
+
+
 
 
 
