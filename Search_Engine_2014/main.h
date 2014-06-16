@@ -8,11 +8,24 @@
 #include <unistd.h>
 #include <iostream>
 #include <wait.h>
-#include "Url.h"
-#include "Code_source.h"
+#include <string.h>
+#include <mysql/mysql.h>
 #include <curl/curl.h>
-#include <curl/types.h>
-#include <curl/easy.h>
+
+#include <mysql++/cppconn/driver.h>
+#include <mysql++/cppconn/exception.h>
+#include <mysql++/cppconn/resultset.h>
+#include <mysql++/cppconn/statement.h>
+#include <mysql_driver.h>
+#include <mysql_connection.h>
+#include <boost/lexical_cast.hpp>
+
+#include "Url.h"
 
 
+#include "MotClef.h"
+
+#include "BDD.h"
+#include "Recherche.h"
+#include "Code_source.h"
 #endif // MAIN_H_INCLUDED

@@ -9,7 +9,11 @@ class Url
     char  name[501];
     public:
     Url();
+    Url(const char nm[501]);
     char * getname();
+    void setname(char nm[501]);
+    void incScore();
+    int getScore();
 };
 
 #endif // URL_H_INCLUDED

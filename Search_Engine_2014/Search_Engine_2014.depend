@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1401208765 source:/home/ehua/taa/troovbox/Search_Engine_2014/main.cpp
+1402891702 source:/home/ehua/taa/troovbox/Search_Engine_2014/main.cpp
 	"main.h"
 
-1401208459 /home/ehua/taa/troovbox/Search_Engine_2014/main.h
+1402715699 /home/ehua/taa/troovbox/Search_Engine_2014/main.h
 	<list>
 	<stdio.h>
 	<stdlib.h>
@@ -10,21 +10,47 @@
 	<unistd.h>
 	<iostream>
 	<wait.h>
-	"Url.h"
-	"Code_source.h"
+	<string.h>
+	<mysql/mysql.h>
 	<curl/curl.h>
-	<curl/types.h>
-	<curl/easy.h>
+	<mysql++/cppconn/driver.h>
+	<mysql++/cppconn/exception.h>
+	<mysql++/cppconn/resultset.h>
+	<mysql++/cppconn/statement.h>
+	<mysql_driver.h>
+	<mysql_connection.h>
+	<boost/lexical_cast.hpp>
+	"Url.h"
+	"MotClef.h"
+	"BDD.h"
+	"Recherche.h"
+	"Code_source.h"
 
-1401205510 /home/ehua/taa/troovbox/Search_Engine_2014/Code_source.h
+1402854271 /home/ehua/taa/troovbox/Search_Engine_2014/Code_source.h
 	"main.h"
 
-1401208647 /home/ehua/taa/troovbox/Search_Engine_2014/Url.h
+1402891208 /home/ehua/taa/troovbox/Search_Engine_2014/Url.h
 	"main.h"
 
-1401216177 source:/home/ehua/taa/troovbox/Search_Engine_2014/Code_Source.cpp
+1402859373 source:/home/ehua/taa/troovbox/Search_Engine_2014/Code_Source.cpp
 	"main.h"
 
-1401206167 source:/home/ehua/taa/troovbox/Search_Engine_2014/Url.cpp
+1402891209 source:/home/ehua/taa/troovbox/Search_Engine_2014/Url.cpp
+	"main.h"
+
+1402703666 /home/ehua/taa/troovbox/Search_Engine_2014/MotClef.h
+
+1402796427 source:/home/ehua/taa/troovbox/Search_Engine_2014/MotClef.cpp
+	"main.h"
+
+1402885614 /home/ehua/taa/troovbox/Search_Engine_2014/BDD.h
+
+1402886818 source:/home/ehua/taa/troovbox/Search_Engine_2014/Bdd.cpp
+	"main.h"
+	<cppconn/prepared_statement.h>
+
+1402719752 /home/ehua/taa/troovbox/Search_Engine_2014/Recherche.h
+
+1402886367 source:/home/ehua/taa/troovbox/Search_Engine_2014/Recherche.cpp
 	"main.h"
 
